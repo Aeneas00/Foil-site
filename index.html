@@ -15,11 +15,11 @@
   --night:#0A1020;
   --navy:#14213D;
   --cream:#F3E9D2;
-  --gold:#FFC300;
+  --gold:#B9A3FF;
   --red:#D62839;
   --mut:#9BA4C6;
   --line:rgba(243,233,210,.16);
-  --foil:linear-gradient(100deg,#8C5E00 0%,#FFC300 26%,#FFF1B0 46%,#FFC300 62%,#8C5E00 100%);
+  --foil:linear-gradient(100deg,#FF6FB5 0%,#B58CFF 24%,#5FD3F0 48%,#B8F28B 70%,#FF9AD0 100%);
   --disp:'Anton',Impact,'Arial Narrow',sans-serif;
   --body:'Newsreader',Georgia,'Times New Roman',serif;
   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -55,14 +55,14 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
 nav ul a{font:500 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--mut);transition:color .2s}
 nav ul a:hover{color:var(--gold)}
-.btn{display:inline-flex;align-items:center;gap:10px;font:600 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:15px 24px;border:1px solid var(--gold);color:var(--night);background:var(--foil);background-size:200% 100%;background-position:0 0;transition:background-position .5s,transform .2s}
+.btn{color:#0A1020;display:inline-flex;align-items:center;gap:10px;font:600 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:15px 24px;border:1px solid var(--gold);color:var(--night);background:var(--foil);background-size:200% 100%;background-position:0 0;transition:background-position .5s,transform .2s}
 .btn:hover{background-position:100% 0;transform:translateY(-2px)}
 .btn.ghost{background:none;color:var(--cream);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
 nav .btn{padding:10px 16px}
 
 /* hero */
-.hero{overflow:hidden;background:radial-gradient(900px 600px at 82% 18%,rgba(255,195,0,.13),transparent 60%),radial-gradient(700px 600px at 8% 90%,rgba(59,79,136,.35),transparent 65%),var(--night)}
+.hero{overflow:hidden;background:radial-gradient(800px 560px at 85% 15%,rgba(255,111,181,.16),transparent 60%),radial-gradient(700px 520px at 60% 85%,rgba(56,178,172,.13),transparent 65%),radial-gradient(700px 600px at 8% 90%,rgba(59,79,136,.35),transparent 65%),var(--night)}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(40px,7vw,96px);align-items:center;padding-block:clamp(56px,8vw,110px)}
 .hero h1{font-size:clamp(60px,10.4vw,150px);line-height:.9;letter-spacing:.012em;margin:22px 0 28px}
 .hero .lede{font-size:clamp(20px,2vw,24px);line-height:1.5;color:#E4DAC1;max-width:34ch}
@@ -75,11 +75,13 @@ nav .btn{padding:10px 16px}
 
 /* photo frame */
 .frame{position:relative;margin:0}
-.frame::before{content:"";position:absolute;inset:16px -16px -16px 16px;border:1px solid rgba(255,195,0,.45);z-index:0}
+.frame::before{content:"";position:absolute;inset:16px -16px -16px 16px;border:1px solid rgba(168,140,255,.45);z-index:0}
 .frame.flip::before{inset:16px 16px -16px -16px}
 .ph{position:relative;z-index:1;aspect-ratio:4/5;overflow:hidden;background:var(--navy);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
 .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .frame:hover .ph img{transform:scale(1.035)}
+.ph::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 25%,rgba(255,111,181,.28) 40%,rgba(95,211,240,.3) 50%,rgba(184,242,139,.25) 60%,transparent 75%) 0 0/260% 100%;background-position:80% 0;mix-blend-mode:soft-light;transition:background-position 1.4s cubic-bezier(.2,.7,.2,1)}
+.frame:hover .ph::before{background-position:10% 0}
 .ph::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);pointer-events:none}
 figcaption{position:relative;z-index:1;font:400 11.5px/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-top:16px}
 
@@ -134,9 +136,9 @@ figcaption{position:relative;z-index:1;font:400 11.5px/1.5 var(--mono);letter-sp
 .anat{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:clamp(40px,8vw,110px);align-items:center;margin-top:64px}
 .stage{position:relative;width:300px;height:420px;margin-inline:auto;flex:none}
 .stage .card{transform-origin:0 0;transform:scale(1.25)}
-.stage::before{content:"";position:absolute;inset:-60px;background:radial-gradient(closest-side,rgba(255,195,0,.2),transparent);z-index:0}
+.stage::before{content:"";position:absolute;inset:-60px;background:radial-gradient(closest-side,rgba(168,140,255,.2),transparent);z-index:0}
 .stage .card{z-index:1}
-.dot{position:absolute;right:-18px;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--night);font:600 13px/30px var(--mono);text-align:center;z-index:3;box-shadow:0 0 0 5px rgba(255,195,0,.2)}
+.dot{position:absolute;right:-18px;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--night);font:600 13px/30px var(--mono);text-align:center;z-index:3;box-shadow:0 0 0 5px rgba(168,140,255,.2)}
 .anat ol{list-style:none;margin:0;padding:0}
 .anat li{display:grid;grid-template-columns:44px minmax(0,1fr);padding:18px 0;border-top:1px solid var(--line)}
 .anat li:last-child{border-bottom:1px solid var(--line)}
@@ -185,11 +187,11 @@ figcaption{position:relative;z-index:1;font:400 11.5px/1.5 var(--mono);letter-sp
 .seal .logo{--fs:clamp(76px,16vw,230px);color:var(--navy)}
 .seal h2{font-size:clamp(34px,5vw,64px);margin:34px auto 22px}
 .seal p{margin-inline:auto;color:#3B4668;font-size:21px}
-.seal .lab{color:#8A5F00}
+.seal .lab{color:#6B3FB0}
 .icon{display:inline-flex;width:92px;height:92px;border-radius:22px;background:var(--navy);color:var(--cream);align-items:center;justify-content:center;font-size:56px;margin-top:40px;box-shadow:0 16px 30px -12px rgba(20,33,61,.6)}
 .icon .logo{--fs:56px}
 .icon .logo svg{margin:0}
-.seal .rule2{height:1px;background:linear-gradient(90deg,transparent,#B58A1B,transparent);margin:0 auto 54px;max-width:560px}
+.seal .rule2{height:1px;background:linear-gradient(90deg,transparent,#8E4FD6,transparent);margin:0 auto 54px;max-width:560px}
 footer{background:var(--night);border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-block:34px;font:400 11.5px/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
 
@@ -215,10 +217,76 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+
+/* simple version */
+.pr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,8vw,120px);align-items:center;padding-block:clamp(64px,8vw,110px);border-top:1px solid var(--line)}
+.pr.rev .vis{order:-1}
+.pr .num{font:400 clamp(70px,9vw,120px)/.9 var(--disp);background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;margin-bottom:14px}
+.pr h2{font-size:clamp(38px,5.2vw,72px);margin-bottom:22px}
+.pr p{font-size:clamp(19px,1.8vw,22px);color:#E4DAC1;max-width:36ch}
+.vis{display:flex;justify-content:center}
+.vis .frame{width:min(100%,420px)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{display:inline-flex;align-items:center;gap:10px;font:600 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;border:1px solid var(--line)}
+.chip i{width:14px;height:14px;border-radius:50%;background:var(--c)}
+.swap{position:relative;width:380px;height:300px;max-width:100%}
+.swap>.a,.swap>.b{width:240px;height:336px;transform-origin:50% 50%}
+.swap>.a{transform:translate(-30px,-20px) scale(.8) rotate(-7deg)!important}
+.swap>.b{transform:translate(30px,-20px) scale(.8) rotate(7deg)!important}
+.swap .arr{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--night);display:grid;place-items:center;z-index:5;box-shadow:0 0 0 8px rgba(168,140,255,.2)}
+.swap .arr svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.stagebig{position:relative;padding:30px}
+.stagebig::before{content:"";position:absolute;inset:-40px;background:radial-gradient(closest-side,rgba(168,140,255,.22),transparent)}
+.hero .wrap{padding-block:clamp(56px,8vw,110px)}
+.hero h1{font-size:clamp(56px,9.2vw,136px)}
+@media (max-width:900px){.pr{grid-template-columns:minmax(0,1fr)}.pr.rev .vis{order:0}.vis{justify-content:flex-start}.swap{height:270px;transform:scale(.9);transform-origin:0 0}}
+
+.hero .wrap{display:block;padding-block:clamp(36px,4vw,56px) clamp(56px,6vw,84px)}
+.hhead{text-align:center}
+.hhead h1{font-size:clamp(46px,6.4vw,92px);margin:14px 0 12px;line-height:.95;white-space:nowrap}
+@media (max-width:520px){.hhead h1{white-space:normal}}
+.hhead .lede{margin:0 auto;max-width:40ch}
+.cfg{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;margin-top:clamp(24px,3vw,40px)}
+.col{display:flex;flex-direction:column;gap:34px}
+.col.l{align-items:flex-end;text-align:right}
+.col.l .sws,.col.l .seg,.col.l .icons{justify-content:flex-end}
+.gl{display:block;font:500 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+.sws{display:flex;flex-wrap:wrap;gap:12px;max-width:230px}
+.col.l .sws{max-width:200px}
+.sw1{width:34px;height:34px;border-radius:50%;border:0;cursor:pointer;background:var(--g);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);position:relative;transition:transform .2s}
+.sw1:hover{transform:scale(1.12)}
+.sw1[aria-pressed=true]{box-shadow:0 0 0 3px var(--night),0 0 0 5px #fff}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg.v{flex-direction:column;align-items:flex-start}
+.seg button,.icons button{font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:rgba(255,255,255,.04);border:1px solid var(--line);padding:11px 16px;cursor:pointer;transition:border-color .2s,background .2s}
+.seg button:hover,.icons button:hover{border-color:#B9A3FF}
+.seg button[aria-pressed=true]{background:var(--foil);color:#0A1020;border-color:transparent}
+.icons{display:flex;flex-wrap:wrap;gap:6px}
+.icons button{padding:0;width:38px;height:38px;display:grid;place-items:center}
+.icons svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.icons button[aria-pressed=true]{background:var(--foil);color:#0A1020;border-color:transparent}
+.mid{display:flex;justify-content:center}
+.big{--k:1.5;position:relative;width:calc(240px*var(--k));height:calc(336px*var(--k))}
+.big::before{content:"";position:absolute;inset:-70px;background:radial-gradient(closest-side,rgba(181,140,255,.28),rgba(95,211,240,.1) 60%,transparent);z-index:0}
+.big .card{position:absolute;left:0;top:0;transform-origin:0 0;transform:scale(var(--k));z-index:1;transition:transform .2s ease-out}
+.big .card .face{transition:background .4s}
+.inputs{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+.inputs label{display:flex;flex-direction:column;gap:8px;font:500 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mut);flex:1 1 200px;max-width:260px}
+.inputs input{font:400 17px var(--body);color:var(--cream);background:rgba(255,255,255,.05);border:1px solid var(--line);padding:12px 14px;width:100%}
+.inputs input:focus{outline:2px solid #B9A3FF;outline-offset:2px}
+.hero .cta{margin-top:30px}
+@media (max-width:900px){
+ .cfg{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+ .mid{grid-column:1/-1;grid-row:1}
+ .big{--k:1.3}
+ .col.l{align-items:flex-start;text-align:left}
+ .col.l .sws,.col.l .seg,.col.l .icons{justify-content:flex-start}
+ .col{gap:26px}
+ .sws,.col.l .sws{max-width:none}
+}
 </style>
 </head>
 <body>
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <linearGradient id="oF" x1="0" y1="0" x2="1" y2="1">
@@ -230,211 +298,76 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     </g>
   </defs>
 </svg>
-
-<nav>
-  <div class="wrap">
-    <a class="logo" href="#top" style="--fs:30px" aria-label="Foiled, back to top">F<span class="o"><svg viewBox="0 0 56 78" aria-hidden="true"><use href="#cardO"/></svg></span>ILED</a>
-    <ul>
-      <li><a href="#how">How it works</a></li>
-      <li><a href="#card">The card</a></li>
-      <li><a href="#rules">Rules</a></li>
-      <li><a href="#tiers">Tiers</a></li>
-      <li><a href="#collection">Collection</a></li>
-    </ul>
-    <a class="btn" href="#how">See how</a>
-  </div>
-</nav>
-
+<nav><div class="wrap">
+<a class="logo" href="#top" style="--fs:30px" aria-label="Foiled, back to top">F<span class="o"><svg viewBox="0 0 56 78" aria-hidden="true"><use href="#cardO"/></svg></span>ILED</a>
+<ul><li><a href="#earned">Earned</a></li><li><a href="#rarity">Rarity</a></li><li><a href="#seal">Design</a></li><li><a href="#trade">Trade</a></li></ul>
+<a class="btn" href="#earned">How it works</a>
+</div></nav>
 <main id="top">
+<section class="hero"><div class="wrap">
+<div class="hhead">
+<div class="lab">Digital collectible cards</div>
+<h1>Foil the <span class="foilt">moment.</span></h1>
+<p class="lede">Digital cards, like the collectible kind. Make one below.</p>
+</div>
+<div class="cfg">
+<div class="col l">
+<div class="grp"><span class="gl">Colour</span><div class="sws" id="cSw"></div></div>
+<div class="grp"><span class="gl">Effect</span><div class="seg" id="cFx"></div></div>
+<div class="grp"><span class="gl">Picture</span><div class="icons" id="cArt"></div></div>
+</div>
+<div class="mid">
+<div class="big" id="bigCard"></div>
+</div>
+<div class="col r">
+<div class="grp"><span class="gl">Rarity</span><div class="seg v" id="cTier"></div></div>
+<div class="grp"><span class="gl">State</span><div class="seg" id="cSt"></div></div>
+</div>
+</div>
+<div class="inputs">
+<label>Title<input id="iT" maxlength="22" value="Foil the moment" autocomplete="off"></label>
+<label>Motto<input id="iM" maxlength="28" value="Every session counts" autocomplete="off"></label>
+</div>
+<div class="cta" style="justify-content:center"><a class="btn" href="#earned">How it works</a><a class="btn ghost" href="#trade">Trade cards</a></div>
+</div></section>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <div class="lab">Cards for a year of your life</div>
-      <h1>A year,<br><span class="foilt">foiled</span><br>into a card.</h1>
-      <p class="lede">Plan one goal for the year. Design the card that will stand for it. Seal it. Finish every milestone and the card is yours.</p>
-      <div class="cta">
-        <a class="btn" href="#how">How a card is made</a>
-        <a class="btn ghost" href="#tiers">See the four tiers</a>
-      </div>
-      <div class="facts">
-        <div><b>3–8</b><span>Milestones per goal</span></div>
-        <div><b>4</b><span>Tiers, Common to Legendary</span></div>
-        <div><b>0</b><span>Money value. Cards are gifted, never sold</span></div>
-      </div>
-    </div>
-    <figure class="frame">
-      <div class="ph"><img fetchpriority="high" src="scene-masters.webp" width="928" height="1152" alt="A hand holds a phone against a café window at dusk. On screen is a Legendary gold holographic card titled Finish my master's, stamped Earned."></div>
-      <figcaption>Finish my master's · 2027 · Earned</figcaption>
-    </figure>
-  </div>
+<div class="wrap">
+<section id="earned" class="pr" style="border-top:0">
+<div><div class="num">1</div><h2>You earn every card</h2><p>Each card comes from a goal you set yourself. Finish the goal and the card is yours.</p></div>
+<div class="vis"><div class="stagebig" id="earnedHost"></div></div>
 </section>
 
-<!-- THESIS -->
-<section class="thesis pad">
-  <div class="wrap">
-    <div class="lab">Why it exists</div>
-    <p>People plan years and forget them. Foiled turns a year into <em>one object</em> you can hold, keep, or hand to someone you love.</p>
-    <small>The name is a memory stamped in foil, the way a trading card gets its metallic finish. The card is a memory. It carries a stamp, the year, a motto you wrote, and a line such as “Held 212 days”.</small>
-  </div>
+<section id="rarity" class="pr rev">
+<div><div class="num">2</div><h2>Longer goals, rarer cards</h2><p>Rarity is partly random. The longer you make the goal, the higher it climbs.</p>
+<div class="chips">
+<span class="chip" style="--c:#B8C0D6"><i></i>Common</span>
+<span class="chip" style="--c:#D62839"><i></i>Rare</span>
+<span class="chip" style="--c:#8E4FD6"><i></i>Epic</span>
+<span class="chip" style="--c:#FFC300"><i></i>Legendary</span>
+</div></div>
+<div class="vis"><figure class="frame flip"><div class="ph"><img loading="lazy" decoding="async" src="scene-collection.webp" width="928" height="1152" alt="A thumb holds a phone on a cobbled street with a yellow tram behind. The screen shows four cards of different rarities."></div></figure></div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section id="how" class="pad">
-  <div class="wrap two">
-    <figure class="frame sticky">
-      <div class="ph"><img loading="lazy" decoding="async" src="scene-plan.webp" width="928" height="1152" alt="A hand holds a phone showing a sealed Common card titled Plan my year, with a paper wall calendar and a fountain pen on the desk behind."></div>
-      <figcaption>Plan my year · 2028 · Sealed</figcaption>
-    </figure>
-    <div>
-      <div class="lab">How it works</div>
-      <h2 style="margin-top:20px">Four steps from plan to card</h2>
-      <ol class="steps">
-        <li><span class="n">01</span><div><h3>Plan</h3><p>Write one yearly goal and split it into 3 to 8 milestones, each with a date.</p></div></li>
-        <li><span class="n">02</span><div><h3>Design</h3><p>Pick the colour, the picture, the motto and the effect before the year starts. The card is a promise.</p></div></li>
-        <li><span class="n">03</span><div><h3>Seal</h3><p>Sealing locks the goal, the dates, the milestones and the design. You get one date change per goal.</p></div></li>
-        <li><span class="n">04</span><div><h3>Earn</h3><p>Finish every milestone and the card is yours. Miss any and it is still issued, torn in two, as a permanent record.</p></div></li>
-      </ol>
-    </div>
-  </div>
+<section id="seal" class="pr">
+<div><div class="num">3</div><h2>Design it, then seal it</h2><p>Make the card look the way you want, then seal it. It stays sealed until you are ready to unpack it.</p><p>From that moment it is yours, and nothing on it can be changed.</p></div>
+<div class="vis"><figure class="frame"><div class="ph"><img loading="lazy" decoding="async" src="scene-plan.webp" width="928" height="1152" alt="A hand holds a phone showing a sealed card titled Plan my year, with a paper calendar and a fountain pen on the desk."></div></figure></div>
 </section>
 
-<!-- CARD ANATOMY -->
-<section id="card" class="pad" style="background:linear-gradient(180deg,transparent,rgba(20,33,61,.55) 30%,rgba(20,33,61,.55) 70%,transparent)">
-  <div class="wrap">
-    <div class="lab">The card</div>
-    <h2 style="margin-top:20px;max-width:12ch">Built like a card you would keep</h2>
-    <div class="anat">
-      <div class="stage" id="anatomy">
-        <span class="dot" style="top:11%">1</span>
-        <span class="dot" style="top:30%">2</span>
-        <span class="dot" style="top:63%">6</span>
-        <span class="dot" style="top:74%">3</span>
-        <span class="dot" style="top:83%">4</span>
-        <span class="dot" style="top:92%">5</span>
-      </div>
-      <ol>
-        <li><i>1</i><div><h3>Title and year</h3><p>The goal in capitals, with the year in a pill.</p></div></li>
-        <li><i>2</i><div><h3>Picture window</h3><p>One simple line icon: a star, mountain, book, heart, bolt, flag or sprout.</p></div></li>
-        <li><i>6</i><div><h3>Stamp</h3><p>Earned in green, Sealed in navy, Draft in grey, Unfinished in dark red.</p></div></li>
-        <li><i>3</i><div><h3>Motto</h3><p>A line in italic that you write yourself.</p></div></li>
-        <li><i>4</i><div><h3>Rarity band</h3><p>Common, Rare, Epic or Legendary, decided by effort.</p></div></li>
-        <li><i>5</i><div><h3>Small print</h3><p>Days held and the date it was sealed.</p></div></li>
-      </ol>
-    </div>
-  </div>
+<section id="trade" class="pr rev">
+<div><div class="num">4</div><h2>Trade with anyone</h2><p>Trade with friends, family or anyone else in the world, as long as you have at least one card to trade.</p></div>
+<div class="vis"><div class="swap"><div class="a" id="swapA" style="position:absolute;left:0;top:0"></div><div class="b" id="swapB" style="position:absolute;right:0;top:0"></div><div class="arr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h14M14 4l4 4-4 4M20 16H6M10 12l-4 4 4 4"/></svg></div></div></div>
 </section>
+</div>
 
-<!-- RULES -->
-<section id="rules" class="pad">
-  <div class="wrap">
-    <div class="lab">The rules</div>
-    <h2 style="margin-top:20px;max-width:14ch">Six rules give a card its meaning</h2>
-    <div class="rules">
-      <div class="rule"><span class="n">1</span><div><h3>Design first, earn second</h3><p>You pick the look before the year starts, so the card is a promise.</p></div></div>
-      <div class="rule"><span class="n">2</span><div><h3>Sealed means locked</h3><p>The goal cannot be edited later. One date change is allowed per goal.</p></div></div>
-      <div class="rule"><span class="n">3</span><div><h3>Rarity comes from effort</h3><p>More milestones over a longer span give a higher tier.</p></div></div>
-      <div class="rule"><span class="n">4</span><div><h3>Late costs a tier</h3><p>A milestone finished after its date lowers an earned card by one tier. The band then reads “weathered”.</p></div></div>
-      <div class="rule"><span class="n">5</span><div><h3>Failure still leaves a card</h3><p>An unfinished goal produces a torn card with a grey, faded finish. It is kept and never deleted.</p></div></div>
-      <div class="rule"><span class="n">6</span><div><h3>Cards can be gifted</h3><p>Hand one to a friend. Cards are never sold and carry no money value.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- TIERS -->
-<section id="tiers" class="pad" style="background:radial-gradient(800px 500px at 50% 40%,rgba(255,195,0,.09),transparent 70%)">
-  <div class="wrap">
-    <div class="lab">Tiers</div>
-    <h2 style="margin-top:20px;max-width:13ch">The longer the year, the rarer the card</h2>
-    <div class="tiers" id="tierGrid"></div>
-
-    <div class="kit">
-      <div>
-        <h3>COLOURWAYS</h3>
-        <div class="sw" id="sw"></div>
-      </div>
-      <div>
-        <h3>EFFECTS</h3>
-        <div class="fxs">
-          <div class="fxbox fx-holo"><i class="fxl"></i><span>Holo</span></div>
-          <div class="fxbox fx-foil"><i class="fxl"></i><span>Foil</span></div>
-          <div class="fxbox fx-glitter"><i class="fxl"></i><span>Glitter</span></div>
-          <div class="fxbox"><span>None</span></div>
-          <p>Holo is a rainbow sheen. Foil is a white sweep of light. Glitter is a fine sparkle.</p>
-        </div>
-      </div>
-      <div>
-        <h3>STAMPS</h3>
-        <div class="stamps">
-          <div class="stamp earned">EARNED</div>
-          <div class="stamp sealed">SEALED</div>
-          <div class="stamp draft">DRAFT</div>
-          <div class="stamp ripped">UNFINISHED</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TORN -->
-<section id="fail" class="pad" style="border-top:1px solid var(--line)">
-  <div class="wrap two rev">
-    <div>
-      <div class="lab">When a year falls short</div>
-      <h2 style="margin:20px 0 28px">Failure still leaves a card</h2>
-      <p>Finish 3 of 5 milestones and the card is issued torn in two, with a grey finish and the stamp “3/5 · Unfinished”. It stays in your collection, kept and never deleted.</p>
-      <p>The torn card is a record of the year you had. It looks dignified, and nothing in the app humiliates you for it.</p>
-      <div class="tornrow">
-        <div class="tornwrap" id="tornHost" aria-label="A card torn in two halves, stamped 3/5 Unfinished"></div>
-        <p>Finish a milestone after its date and an earned card drops one tier. Its band reads “weathered”.</p>
-      </div>
-    </div>
-    <figure class="frame flip">
-      <div class="ph"><img loading="lazy" decoding="async" src="scene-unfinished.webp" width="928" height="1152" alt="A phone lies on a pale wooden table in window light showing a grey card titled Launch the channel, stamped 3/5 Unfinished. A hand rests nearby."></div>
-      <figcaption>Launch the channel · 2026 · 3/5 Unfinished</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- COLLECTION -->
-<section id="collection" class="pad" style="border-top:1px solid var(--line)">
-  <div class="wrap two">
-    <figure class="frame">
-      <div class="ph"><img loading="lazy" decoding="async" src="scene-collection.webp" width="928" height="1152" alt="A thumb holds a phone on a cobbled street with a yellow tram behind. The screen shows four cards: Finish my master's, Run a marathon, Move into our flat and Learn Spanish."></div>
-      <figcaption>Collection · Legendary, Rare, Epic, Common</figcaption>
-    </figure>
-    <div>
-      <div class="lab">Collection</div>
-      <h2 style="margin:20px 0 28px">Every year you finish goes on the shelf</h2>
-      <p>Earned, sealed and torn cards live in one collection, each with the days you held it. A runner’s Rare crimson card sits beside a degree in Legendary gold.</p>
-      <p>A card can be gifted to a friend. It is never sold, and it never carries a price.</p>
-      <p class="mut" style="font:400 13px/1.7 var(--mono);letter-spacing:.06em;text-transform:uppercase;margin-top:30px">A marathon. A degree. A move. A language. A channel launch.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SEAL -->
-<section class="seal pad">
-  <div class="wrap">
-    <div class="rule2"></div>
-    <div class="lab">Foiled</div>
-    <div style="margin-top:20px"><span class="logo" role="img" aria-label="Foiled">F<span class="o"><svg viewBox="0 0 56 78" aria-hidden="true"><use href="#cardO"/></svg></span>ILED</span></div>
-    <h2>Seal your year</h2>
-    <p>Choose the goal, design the card, and hold it for a year. The finish is earned.</p>
-    <div class="icon" aria-hidden="true"><span class="logo"><span class="o"><svg viewBox="0 0 56 78"><use href="#cardO"/></svg></span></span></div>
-    <p class="lab" style="margin:30px auto 0">In development · Ukrainian and English</p>
-  </div>
-</section>
+<section class="seal pad"><div class="wrap">
+<div class="rule2"></div>
+<span class="logo" role="img" aria-label="Foiled">F<span class="o"><svg viewBox="0 0 56 78" aria-hidden="true"><use href="#cardO"/></svg></span>ILED</span>
+<h2>Foil the moment</h2>
+<div class="icon" aria-hidden="true"><span class="logo"><span class="o"><svg viewBox="0 0 56 78"><use href="#cardO"/></svg></span></span></div>
+<p class="lab" style="margin:30px auto 0">In development</p>
+</div></section>
 </main>
-
-<footer>
-  <div class="wrap">
-    <span>Foiled · A year, foiled into a card</span>
-    <span>Scene images are generated illustrations</span>
-  </div>
-</footer>
-
+<footer><div class="wrap"><span>Foiled · Foil the moment</span><span>Scene images are generated illustrations</span></div></footer>
 <script>
 (function(){
 var ART={
@@ -452,13 +385,6 @@ function card(g,tilt){
   var p=PAL[g.pal],stamp=g.st==='earned'?'<div class="stamp earned">EARNED</div>':g.st==='ripped'?'<div class="stamp ripped">'+g.done+' · UNFINISHED</div>':g.st==='active'?'<div class="stamp sealed">SEALED</div>':'<div class="stamp draft">DRAFT</div>';
   return '<div class="card r-'+g.tier+' fx-'+g.fx+(g.st==='ripped'?' ripped':'')+'"'+(tilt?' data-tilt':'')+' style="--a:'+p[0]+';--b:'+p[1]+'" role="img" aria-label="'+g.t+', '+T[g.tier]+' card, '+g.y+'"><div class="face"><div class="top"><b>'+g.t+'</b><span class="yr">'+g.y+'</span></div><div class="win">'+ART[g.art]+'</div><div class="motto">'+g.m+'</div><div class="band">'+T[g.tier]+'</div><div class="meta">'+g.meta.split('|').map(function(x){return '<span>'+x+'</span>'}).join('')+'</div></div><div class="fxl"></div>'+stamp+'</div>';
 }
-function torn(g){
-  var a=[],x;
-  for(x=0;x<=100;x+=8)a.push([x,(a.length%2?57:51)]);
-  var ln=a.map(function(q){return q[0]+'% '+q[1]+'%'}).join(','),
-      rv=a.slice().reverse().map(function(q){return q[0]+'% '+q[1]+'%'}).join(',');
-  return '<div class="torn"><div class="half h1" style="clip-path:polygon(0 0,100% 0,'+rv+')">'+card(g)+'</div><div class="half h2" style="clip-path:polygon('+ln+',100% 100%,0 100%)">'+card(g)+'</div></div>';
-}
 
 var master={t:"Finish my master's",y:2027,m:'Every session counts',tier:'legendary',pal:'Ink',art:'book',fx:'holo',st:'earned',meta:'Held 365 days|Sealed 1 Jan 2027'};
 var run={t:'Run a marathon',y:2027,m:'One step, every week',tier:'rare',pal:'Rose',art:'bolt',fx:'foil',st:'earned',meta:'Held 212 days|Sealed 3 Mar 2027'};
@@ -466,16 +392,45 @@ var flat={t:'Move into our flat',y:2027,m:'Keys by autumn',tier:'epic',pal:'Gold
 var spa={t:'Learn Spanish',y:2027,m:'Hola, mundo',tier:'common',pal:'Forest',art:'sprout',fx:'none',st:'active',meta:'Held 40 days|Sealed 1 Feb 2027'};
 var chan={t:'Launch the channel',y:2026,m:'Say it out loud',tier:'epic',pal:'Sea',art:'flag',fx:'holo',st:'ripped',meta:'Held 365 days|Sealed 1 Jan 2026',done:'3/5'};
 
-document.getElementById('anatomy').insertAdjacentHTML('afterbegin',card(master,true));
 
-var tiers=[[spa,'2 or 3 milestones over a few months.'],[run,'4 milestones over about 6 months.'],[flat,'5 milestones over a full year.'],[master,'6 or more milestones over a full year.']];
-document.getElementById('tierGrid').innerHTML=tiers.map(function(t){
-  return '<div class="tier">'+card(t[0],true)+'<hr><h3>'+T[t[0].tier]+'</h3><p>'+t[1]+'</p></div>';
-}).join('');
 
-document.getElementById('sw').innerHTML=Object.keys(PAL).map(function(k){var p=PAL[k];return '<div><i style="background:linear-gradient(135deg,'+p[0]+','+p[1]+')"></i><span><b>'+k+'</b>'+p[2]+'</span></div>'}).join('');
-document.getElementById('tornHost').innerHTML=torn(chan);
-
+PAL.Violet=['#3B1F7A','#8E4FD6','Violet'];PAL.Ember=['#8A2B0B','#FF7A3C','Ember'];PAL.Slate=['#2B3240','#7C879E','Slate'];
+var cfg={t:'Foil the moment',m:'Every session counts',tier:'epic',pal:'Violet',art:'star',fx:'holo',st:'active'};
+var host=document.getElementById('bigCard');
+function esc(x){return x.replace(/[<>&"]/g,'')}
+function render(){
+ var meta=cfg.st==='draft'?'Not sealed yet':cfg.st==='earned'?'Held 365 days|Sealed 1 Jan 2027':'Held 0 days|Sealed today';
+ host.innerHTML=card({t:esc(cfg.t)||'Your goal',y:2027,m:esc(cfg.m),tier:cfg.tier,pal:cfg.pal,art:cfg.art,fx:cfg.fx,st:cfg.st,meta:meta},true);
+}
+function group(id,items,key,kind){
+ var el=document.getElementById(id);
+ el.innerHTML=items.map(function(it){
+  if(kind==='sw')return '<button class="sw1" data-v="'+it[0]+'" style="--g:linear-gradient(135deg,'+PAL[it[0]][0]+','+PAL[it[0]][1]+')" aria-label="'+it[0]+'" title="'+it[0]+'"></button>';
+  if(kind==='ic')return '<button data-v="'+it[0]+'" aria-label="'+it[0]+'">'+ART[it[0]]+'</button>';
+  return '<button data-v="'+it[0]+'">'+it[1]+'</button>';
+ }).join('');
+ function sync(){Array.prototype.forEach.call(el.children,function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-v')===cfg[key]))})}
+ el.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cfg[key]=b.getAttribute('data-v');sync();render()});
+ sync();
+}
+group('cSw',Object.keys(PAL).map(function(k){return [k]}),'pal','sw');
+group('cFx',[['holo','Holo'],['foil','Foil'],['glitter','Glitter'],['none','None']],'fx');
+group('cArt',Object.keys(ART).map(function(k){return [k]}),'art','ic');
+group('cTier',[['common','Common'],['rare','Rare'],['epic','Epic'],['legendary','Legendary']],'tier');
+group('cSt',[['draft','Draft'],['active','Sealed'],['earned','Earned']],'st');
+document.getElementById('iT').addEventListener('input',function(e){cfg.t=e.target.value;render()});
+document.getElementById('iM').addEventListener('input',function(e){cfg.m=e.target.value;render()});
+render();
+host.addEventListener('pointermove',function(e){
+ var c=host.firstChild;if(!c)return;
+ var k=parseFloat(getComputedStyle(host).getPropertyValue('--k'))||1.5,r=host.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+ c.style.transform='perspective(1000px) rotateY('+((px-.5)*22).toFixed(2)+'deg) rotateX('+((.5-py)*22).toFixed(2)+'deg) scale('+k+')';
+ c.style.setProperty('--mx',(px*100).toFixed(1)+'%');c.style.setProperty('--my',(py*100).toFixed(1)+'%');
+});
+host.addEventListener('pointerleave',function(){var c=host.firstChild;if(c){c.style.transform='';c.style.setProperty('--mx','40%');c.style.setProperty('--my','30%')}});
+document.getElementById('earnedHost').innerHTML=card(master,true);
+document.getElementById('swapA').innerHTML=card(run,true);
+document.getElementById('swapB').innerHTML=card(flat,true);
 if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   document.addEventListener('pointermove',function(e){
     var el=e.target.closest&&e.target.closest('[data-tilt]');
@@ -483,15 +438,8 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     var r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
     el.style.setProperty('--mx',(px*100).toFixed(1)+'%');
     el.style.setProperty('--my',(py*100).toFixed(1)+'%');
-    var s=el.closest('.stage')?1.25:1;
-    el.style.transform='perspective(800px) rotateY('+((px-.5)*18).toFixed(2)+'deg) rotateX('+((.5-py)*18).toFixed(2)+'deg) scale('+s+')';
-  });
-  document.addEventListener('pointerout',function(e){
-    var el=e.target.closest&&e.target.closest('[data-tilt]');
-    if(el&&!el.contains(e.relatedTarget)){el.style.transform='';el.style.setProperty('--mx','40%');el.style.setProperty('--my','30%')}
   });
 }
 })();
 </script>
-</body>
-</html>
+</body></html>
