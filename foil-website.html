@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Foil: tasks as collectible cards</title>
+<meta name="description" content="Foil is a task manager. Finish tasks, earn coins, roll limited-edition cards with serial numbers, and dress your tasks in them.">
+<meta name="theme-color" content="#14213D">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Anton&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{--bg:#F3E9D2;--paper:#FBF6E9;--ink:#14213D;--muted:#4A5470;--line:#D8CAA8;--accent:#D62839;--good:#16693F}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden;margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+.mono{font-family:'Space Mono',monospace;letter-spacing:.06em;text-transform:uppercase;font-size:.75rem}
+h1,h2,h3{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;margin:0}
+h1{font-size:clamp(2.6rem,8vw,5rem)}
+h2{font-size:clamp(1.8rem,5vw,2.8rem);margin-bottom:12px}
+h3{font-size:1.25rem}
+p{margin:0 0 12px}
+a{color:inherit}
+nav.top{display:flex;align-items:center;gap:16px;padding:calc(14px + env(safe-area-inset-top)) 0 14px}
+.logo{background:linear-gradient(#1B2B50,#14213D) padding-box,linear-gradient(135deg,#FFC300,#FF6FB5 30%,#7AD7F0 62%,#B8F28B) border-box;border:3px solid transparent;border-radius:12px;color:#F3E9D2;padding:2px 14px;font:400 1.4rem Anton,Impact,sans-serif;letter-spacing:.08em;text-decoration:none}
+.grow{flex:1}
+.links{display:flex;gap:18px}
+.links a{text-decoration:none;font:700 .75rem 'Space Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
+.links a:hover{text-decoration:underline}
+@media(max-width:620px){.links{display:none}}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);border:2px solid var(--ink);border-radius:999px;padding:10px 22px;font:700 .8rem 'Space Mono',monospace;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.btn.line{background:transparent;color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:40px 0 70px}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:20px}}
+.hero p.lead{font-size:1.15rem;max-width:34em;margin:18px 0 24px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.fan{position:relative;height:380px;padding:10px 0}
+.fan .fc{position:absolute;width:190px;top:10px}
+.fan .fc:nth-child(1){left:0;transform:rotate(-10deg);z-index:1}
+.fan .fc:nth-child(2){left:26%;transform:translateY(-14px);z-index:3}
+.fan .fc:nth-child(3){left:52%;transform:rotate(10deg);z-index:2}
+@media(max-width:520px){.fan{height:300px;overflow:hidden}.fan .fc{width:130px}.fan .fc:nth-child(1){left:0}.fan .fc:nth-child(2){left:31%}.fan .fc:nth-child(3){left:62%}}
+section{padding:56px 0;border-top:2px solid var(--ink)}
+.sub{color:var(--muted);max-width:40em;margin-bottom:24px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;counter-reset:s}
+.step{background:var(--paper);border:2px solid var(--ink);border-radius:10px;padding:16px 18px;counter-increment:s}
+.step:before{content:counter(s);display:block;font:400 2.4rem Anton,Impact,sans-serif;color:var(--accent);line-height:1}
+.step h3{margin:6px 0 6px}
+.step p{margin:0;font-size:.95rem}
+table{width:100%;border-collapse:collapse;background:var(--paper);border:2px solid var(--ink);border-radius:10px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:.95rem}
+th{font:700 .72rem 'Space Mono',monospace;letter-spacing:.06em;text-transform:uppercase;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.scroll{overflow-x:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;margin-top:10px}
+.tierh{margin:30px 0 4px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tierh span{color:var(--muted)}
+.fc{border-radius:14px;padding:5px;aspect-ratio:5/7;box-shadow:0 8px 18px rgba(20,33,61,.25);position:relative;overflow:hidden}
+.fci{height:100%;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden}
+.fcn{font:400 .95rem/1.05 Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.fcw{flex:1;border:2px solid;border-radius:5px;display:flex;align-items:center;justify-content:center;min-height:0}
+.fcw svg{width:60%;height:auto}
+.fcb{font:700 .65rem 'Space Mono',monospace;letter-spacing:.07em;text-transform:uppercase;padding:2px 6px;background:rgba(128,128,128,.22);border-radius:2px;align-self:flex-start}
+.fcs{text-align:right;font:700 .7rem 'Space Mono',monospace}
+.fsh{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 28%,rgba(255,255,255,.4) 42%,rgba(255,111,181,.16) 48%,rgba(122,215,240,.16) 54%,transparent 64%);background-size:250% 100%;animation:fsh 4.5s ease-in-out infinite}
+@keyframes fsh{0%{background-position:130% 0}60%,100%{background-position:-60% 0}}
+@media(prefers-reduced-motion:reduce){.fsh{animation:none}}
+.rules{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.rules li{background:var(--paper);border:2px solid var(--ink);border-radius:10px;padding:14px 16px;font-size:.95rem}
+.rules b{display:block;margin-bottom:2px}
+.soon{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.soon div{border:2px dashed var(--ink);border-radius:10px;padding:16px 18px}
+.soon .mono{color:var(--accent)}
+footer{border-top:2px solid var(--ink);padding:30px 0 calc(40px + env(safe-area-inset-bottom));color:var(--muted);font-size:.9rem}
+footer .w{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+</style>
+</head>
+<body>
+<div class="w">
+<nav class="top">
+  <a class="logo" href="#">FOIL</a><span class="grow"></span>
+  <div class="links"><a href="#how">How it works</a><a href="#coins">Coins</a><a href="#cards">Cards</a><a href="#fair">Fair play</a></div>
+  <a class="btn" href="https://aeneas00.github.io/Foil/">Open the app</a>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="mono" style="color:var(--accent);margin-bottom:10px">Task manager · Limited cards</div>
+    <h1>Your tasks wear cards you own.</h1>
+    <p class="lead">Finish tasks, earn coins, and spend them on rolls. Each roll gives you a card with a serial number. Some designs exist 200 times in the whole world. Put your cards on the tasks you are working on.</p>
+    <div class="cta"><a class="btn" href="https://aeneas00.github.io/Foil/">Start collecting</a><a class="btn line" href="#how">How it works</a></div>
+  </div>
+  <div class="fan" id="fan" aria-hidden="true"></div>
+</header>
+</div>
+
+<section id="how"><div class="w">
+  <h2>How it works</h2>
+  <p class="sub">One loop: plan, work, earn, roll.</p>
+  <div class="steps">
+    <div class="step"><h3>Plan and commit</h3><p>Add a task for a day. Commit to it before midnight the day before to earn full coins.</p></div>
+    <div class="step"><h3>Start and finish</h3><p>Press Start on the day. Done unlocks after half of your time estimate has passed.</p></div>
+    <div class="step"><h3>Earn coins</h3><p>High priority pays 30, Medium 20, Low 10. 50 coins buy one roll.</p></div>
+    <div class="step"><h3>Roll a card</h3><p>Each roll gives a card with a design, a tier and a serial number, such as Crown #47 of 200.</p></div>
+  </div>
+  <p style="margin-top:20px">Cards you own can be applied to your open tasks. The task gets the card's frame and icon.</p>
+</div></section>
+
+<section id="coins"><div class="w">
+  <h2>Coins</h2>
+  <p class="sub">All of this is calculated on the server, in your time zone.</p>
+  <div class="two">
+    <div class="scroll"><table>
+      <tr><th>Task</th><th>Coins</th></tr>
+      <tr><td>High priority, committed the day before</td><td>30</td></tr>
+      <tr><td>Medium priority, committed</td><td>20</td></tr>
+      <tr><td>Low priority or no estimate, committed</td><td>10</td></tr>
+      <tr><td>Same-day task (wildcard)</td><td>Half, max 2 a day</td></tr>
+    </table></div>
+    <div class="scroll"><table>
+      <tr><th>Limit</th><th>Rule</th></tr>
+      <tr><td>Daily cap</td><td>5 rewarded tasks a day</td></tr>
+      <tr><td>Repeat title</td><td>Half coins if the same title was done in the last 7 days</td></tr>
+      <tr><td>Minimum time</td><td>Half the estimate, at least 5 minutes (10 with no estimate)</td></tr>
+      <tr><td>Roll price</td><td>50 coins</td></tr>
+    </table></div>
+  </div>
+</div></section>
+
+<section id="cards"><div class="w">
+  <h2>The cards</h2>
+  <p class="sub">28 designs in four tiers. Every card has a serial number. When a design reaches its edition size, no more are made.</p>
+  <div class="scroll"><table>
+    <tr><th>Tier</th><th>Chance per roll</th><th>Designs</th><th>Copies of each design</th></tr>
+    <tr><td>Base</td><td>60%</td><td>8</td><td>Unlimited</td></tr>
+    <tr><td>Rare</td><td>25%</td><td>8</td><td>1,000</td></tr>
+    <tr><td>Foil</td><td>12%</td><td>8</td><td>300</td></tr>
+    <tr><td>Legend</td><td>3%</td><td>4</td><td>200</td></tr>
+  </table></div>
+  <p style="margin-top:12px;font-size:.95rem">If a tier is sold out, the roll falls to the next lower tier.</p>
+  <div id="gal"></div>
+</div></section>
+
+<section id="fair"><div class="w">
+  <h2>Fair play</h2>
+  <p class="sub">Coins, cards and serial numbers are written only by the server. The app on your phone cannot change them.</p>
+  <ul class="rules">
+    <li><b>Work has a minimum time</b>You cannot finish a task seconds after starting it.</li>
+    <li><b>One task at a time</b>Only one task can be in progress, so you cannot start five and wait.</li>
+    <li><b>Commitments are real</b>A task counts as committed only if you committed it before the planned day began.</li>
+    <li><b>Finished tasks are locked</b>You cannot edit or delete a finished task to reset the daily cap or the repeat filter.</li>
+    <li><b>Time zone is fixed</b>It can be changed once every 7 days, so the day boundary cannot be moved to get a second cap.</li>
+    <li><b>Cards are yours</b>You can only apply cards that are in your own collection.</li>
+  </ul>
+</div></section>
+
+<section id="soon"><div class="w">
+  <h2>What comes next</h2>
+  <p class="sub">Foil is at version 1. These are planned and not built yet.</p>
+  <div class="soon">
+    <div><div class="mono">Version 1.1</div><h3 style="margin:6px 0">Trading</h3><p style="margin:0">Swap cards with other players.</p></div>
+    <div><div class="mono">Planned</div><h3 style="margin:6px 0">Public profiles</h3><p style="margin:0">Show your rarest cards on a page others can open.</p></div>
+    <div><div class="mono">Planned</div><h3 style="margin:6px 0">More designs</h3><p style="margin:0">New art for the 28 starter designs and new sets.</p></div>
+  </div>
+  <p style="margin-top:22px;font-size:.95rem">Cards have no cash value. They are earned by finishing tasks and cannot be bought.</p>
+</div></section>
+
+<footer><div class="w"><a class="logo" href="#">FOIL</a><span class="grow"></span><a href="https://aeneas00.github.io/Foil/">Open the app</a></div></footer>
+
+<script>
+const TIERS={base:{n:'Base',frame:'#8D97B3',face:'#F3E9D2',ink:'#14213D',win:'#E8DCC0',shine:0},rare:{n:'Rare',frame:'linear-gradient(135deg,#7E1120,#D62839 28%,#FF7A88 50%,#D62839 72%,#8E1424)',face:'#FBF6E9',ink:'#14213D',win:'#F7C6CB',shine:0},foil:{n:'Foil',frame:'linear-gradient(135deg,#FFC300,#FF6FB5,#7AD7F0,#B8F28B)',face:'#FBF6E9',ink:'#14213D',win:'#FBEFB8',shine:1},legend:{n:'Legend',frame:'#FFC300',face:'#14213D',ink:'#F3E9D2',win:'#1B2C52',shine:1}};
+const ART={list:'M20 28h12v12H20z M42 34h38 M20 56h12v12H20z M42 62h38',bars:'M20 80V54 M40 80V38 M60 80V46 M80 80V24',star:'M50 14L58 42L86 50L58 58L50 86L42 58L14 50L42 42Z',crown:'M16 72L20 34L38 52L50 28L62 52L80 34L84 72Z',plane:'M14 46L86 18L66 84L48 60L14 46Z M48 60L86 18',lens:'M42 18a24 24 0 100 48a24 24 0 100-48 M60 62L84 86',gear:'M50 36a14 14 0 100 28a14 14 0 100-28 M50 14v14 M50 72v14 M14 50h14 M72 50h14 M25 25l10 10 M65 65l10 10 M75 25l-10 10 M35 65l-10 10',flag:'M28 16V86 M28 20h46l-10 16 10 16H28',key:'M30 50a14 14 0 100-1 M44 50h42 M70 50v14 M82 50v10',mail:'M16 26h68v48H16z M16 28l34 26 34-26'};
+const PAL={slate:'#4A5470',sand:'#A88B4A',ruby:'#B81F30',coral:'#E8604C',aurora:'#1FA58A',prism:'#7C5CFF',gold:'#FFC300'};
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const D=[];
+[['list','mail','flag','key'].forEach(i=>['slate','sand'].forEach(p=>D.push({i,p,t:'base',e:null}))),
+ ['bars','plane','lens','gear'].forEach(i=>['ruby','coral'].forEach(p=>D.push({i,p,t:'rare',e:1000}))),
+ ['star','gear','plane','bars'].forEach(i=>['aurora','prism'].forEach(p=>D.push({i,p,t:'foil',e:300}))),
+ ['crown','star','flag','key'].forEach(i=>D.push({i,p:'gold',t:'legend',e:200}))];
+function card(d,serial){
+  const x=TIERS[d.t];
+  const s=serial?'#'+serial+(d.e?' / '+d.e:''):(d.e?d.e+' copies':'Unlimited');
+  return '<div class="fc" style="background:'+x.frame+'"><div class="fci" style="background:'+x.face+';color:'+x.ink+'"><div class="fcn">'+cap(d.i)+' / '+cap(d.p)+'</div><div class="fcw" style="border-color:'+x.ink+';background:'+x.win+'"><svg viewBox="0 0 100 100" fill="none" stroke="'+PAL[d.p]+'" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="'+ART[d.i]+'" fill-rule="evenodd"/></svg></div><div class="fcb">'+x.n+'</div><div class="fcs">'+s+'</div>'+(x.shine?'<div class="fsh"></div>':'')+'</div></div>';
+}
+const find=(i,p)=>D.find(d=>d.i===i&&d.p===p);
+document.getElementById('fan').innerHTML=card(find('plane','ruby'),212)+card(find('crown','gold'),47)+card(find('star','prism'),88);
+document.getElementById('gal').innerHTML=['legend','foil','rare','base'].map(t=>{
+  const ds=D.filter(d=>d.t===t),e=ds[0].e;
+  return '<div class="tierh"><h3>'+TIERS[t].n+'</h3><span class="mono">'+ds.length+' designs · '+(e?e.toLocaleString('en-US')+' copies each':'unlimited')+'</span></div><div class="grid">'+ds.map(d=>card(d,0)).join('')+'</div>';
+}).join('');
+</script>
+</body>
+</html>
