@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy policy</title><meta name="description" content="How Foiled handles your data.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>
+/* Plan: one dark luxury world. Night navy ground, cream paper for the closing seal, foil-gold hairlines and one gold-foil headline word. Layout: editorial columns, photographs in sharp frames with an offset gold hairline, cards as the only glossy objects. */
+:root{
+  --night:#0A1020;
+  --navy:#14213D;
+  --cream:#F3E9D2;
+  --gold:#B9A3FF;
+  --red:#D62839;
+  --mut:#9BA4C6;
+  --line:rgba(243,233,210,.16);
+  --foil:linear-gradient(100deg,#FF6FB5 0%,#B58CFF 24%,#5FD3F0 48%,#B8F28B 70%,#FF9AD0 100%);
+  --disp:'Anton',Impact,'Arial Narrow',sans-serif;
+  --body:'Newsreader',Georgia,'Times New Roman',serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--night);scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--night);color:var(--cream);font:400 19px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:max(20px,4vw)}
+section{position:relative}
+main{overflow-x:clip}
+.pad{padding-block:clamp(72px,9vw,128px)}
+.lab{font:500 12px/1.4 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.mut{color:var(--mut)}
+h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;margin:0;text-wrap:balance}
+h2{font-size:clamp(42px,6.4vw,92px);line-height:.96;letter-spacing:.015em}
+p{margin:0 0 16px;max-width:60ch}
+.foilt{background:var(--foil);background-size:250% 100%;background-position:30% 0;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:sweep 3.2s ease-out .3s 1 both}
+@keyframes sweep{from{background-position:100% 0}to{background-position:30% 0}}
+
+/* logo */
+.logo{display:inline-flex;align-items:baseline;gap:.03em;font:400 var(--fs,44px)/1 var(--disp);letter-spacing:.04em;text-decoration:none;color:inherit}
+.logo .o{display:flex}
+.logo svg{height:.73em;height:1cap;width:auto;display:block;margin-inline:.07em;overflow:visible;transform:rotate(-9deg)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(10,16,32,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
+nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+nav ul a{font:500 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--mut);transition:color .2s}
+nav ul a:hover{color:var(--gold)}
+.btn{color:#0A1020;display:inline-flex;align-items:center;gap:10px;font:600 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:15px 24px;border:1px solid var(--gold);color:var(--night);background:var(--foil);background-size:200% 100%;background-position:0 0;transition:background-position .5s,transform .2s}
+.btn:hover{background-position:100% 0;transform:translateY(-2px)}
+.btn.ghost{background:none;color:var(--cream);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
+nav .btn{padding:10px 16px}
+
+
+footer{background:var(--night);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-block:34px;font:400 11.5px/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+
+.doc{max-width:760px;margin:0 auto;padding:clamp(56px,8vw,110px) max(20px,4vw)}
+.doc h1{font-size:clamp(44px,7vw,84px);line-height:.95;margin:16px 0 18px}
+.doc .upd{font:400 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:34px}
+.doc h2{font-size:28px;letter-spacing:.03em;margin:46px 0 12px;padding-top:30px;border-top:1px solid var(--line)}
+.doc p,.doc li{color:#E4DAC1;max-width:none}
+.doc ul{padding-left:22px;margin:0 0 16px}
+.doc li{margin-bottom:8px}
+.doc a{color:#B9A3FF;text-underline-offset:3px}
+.doc a:hover{color:#fff}
+.ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:34px 0 10px}
+.way{display:block;text-decoration:none;border:1px solid var(--line);padding:26px;background:rgba(255,255,255,.03);transition:border-color .2s,transform .2s}
+.way:hover{border-color:#B9A3FF;transform:translateY(-3px)}
+.way .lab{display:block;margin-bottom:12px}
+.way b{font:400 22px/1.15 var(--disp);letter-spacing:.03em;text-transform:uppercase;color:var(--cream);overflow-wrap:anywhere}
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font:400 22px/1.2 var(--disp);letter-spacing:.03em;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:500 22px var(--mono);color:#B9A3FF}
+details[open] summary::after{content:"\2212"}
+details p{margin:14px 0 0}
+footer .wrap a{color:var(--mut);text-decoration:none}
+footer .wrap a:hover{color:#B9A3FF}
+footer .links{display:flex;gap:22px;flex-wrap:wrap}
+@media (max-width:900px){nav ul{display:none}}
+@media (max-width:640px){.ways{grid-template-columns:minmax(0,1fr)}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="oF" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFC300"/><stop offset=".35" stop-color="#FF6FB5"/><stop offset=".68" stop-color="#8E4FD6"/><stop offset="1" stop-color="#38B2AC"/>
+    </linearGradient>
+    <g id="cardO">
+      <rect x="4" y="4" width="48" height="70" rx="11" fill="none" stroke="url(#oF)" stroke-width="8"/>
+      <rect x="13" y="13" width="30" height="52" rx="4" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".55"/>
+    </g>
+  </defs>
+</svg>
+<nav><div class="wrap"><a class="logo" href="./" style="--fs:30px" aria-label="Foiled, home">F<span class="o"><svg viewBox="0 0 56 78" aria-hidden="true"><use href="#cardO"/></svg></span>ILED</a>
+<ul><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+<a class="btn" href="./">Home</a></div></nav>
+<main class="doc"><div class="lab">Legal</div>
+<h1>Privacy policy</h1>
+<div class="upd">Last updated 30 October 2026</div>
+<p>This policy explains what Foiled collects, why, and what you can do about it. It covers this website, foiled.app, and the Foiled app. The app is in development, so the sections about the app describe how it will handle data when it launches.</p>
+
+<h2>This website</h2>
+<p>The website has no cookies, analytics, advertising trackers or sign-up forms. It loads fonts from Google Fonts, so Google receives your IP address and browser details when a page loads. The site is hosted on GitHub Pages, which may keep standard server logs, including IP addresses.</p>
+
+<h2>What the app collects</h2>
+<ul>
+<li>Account data: your email address and your sign-in credentials.</li>
+<li>Content you create: goals, milestones, dates, and card designs (title, colour, picture, motto and effect), plus the cards you earn and hold.</li>
+<li>Trading data: which cards you trade, with whom, and when.</li>
+<li>Technical data: device type, app version and error logs, used to keep the app working.</li>
+</ul>
+
+<h2>How we use it</h2>
+<p>We use your data to run your account and show your cards, to apply the rules of the app (sealing, rarity and trading limits), to prevent abuse such as farming tasks or trade fraud, and to answer your support messages. We do not sell your personal data.</p>
+
+<h2>What other people see</h2>
+<p>Your profile and goals are private by default. Other people see a card only when you choose to show it or trade it.</p>
+
+<h2>Who processes your data</h2>
+<p>We use third-party providers to host the app and store its data. They process your data only to provide those services. We share data with anyone else only when the law requires it.</p>
+
+<h2>How long we keep it</h2>
+<p>We keep your data while your account exists. When you delete your account, we delete your personal data, except where the law requires us to keep something.</p>
+
+<h2>Your rights</h2>
+<p>You can ask us to show you the data we hold about you, correct it, export it or delete it. Email <a href="mailto:foiled.app@gmail.com">foiled.app@gmail.com</a> from the address on your account. If you live in the EU, the EEA or the UK, you can also complain to your local data protection authority.</p>
+
+<h2>Children</h2>
+<p>Foiled is not for people under 16. We do not knowingly collect data from them. If you think a child has given us data, email us and we will delete it.</p>
+
+<h2>Changes</h2>
+<p>When we change this policy, we change the date at the top. After the app launches, we will also tell app users about material changes.</p>
+
+<h2>Contact</h2>
+<p>Email <a href="mailto:foiled.app@gmail.com">foiled.app@gmail.com</a> or message <a href="https://instagram.com/foiled.app" rel="noopener">@foiled.app</a> on Instagram.</p></main>
+<footer><div class="wrap"><span>Foiled · Foil the moment</span><span class="links"><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="mailto:foiled.app@gmail.com">foiled.app@gmail.com</a><a href="https://instagram.com/foiled.app" rel="noopener">@foiled.app</a></span></div></footer>
+</body></html>
